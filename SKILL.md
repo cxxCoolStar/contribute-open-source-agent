@@ -28,6 +28,8 @@ When the task involves detailed opportunity scoring, architecture review, PR dra
 3. Select contribution opportunities:
    - First check open issues with labels like `good first issue`, `help wanted`, `bug`, `documentation`, `enhancement`, and project-specific equivalents.
    - Prefer open, recently active, unassigned issues with clear expected behavior or reproducible steps.
+   - Before recommending an issue, verify it has no linked or in-progress PR: check linked PR metadata, issue timeline/cross-references, comments claiming a PR, and open PR searches that mention the issue number.
+   - Exclude issues that already have an open/draft PR, a recently merged PR that likely resolves them, or a maintainer comment saying a fix is already in progress.
    - Estimate whether the likely change fits 1-3 files and does not require architecture-wide redesign.
    - If issues are thin, inspect the codebase for small AI Agent architecture gaps.
 
@@ -69,7 +71,7 @@ When the task involves detailed opportunity scoring, architecture review, PR dra
 
 For repository search, return a ranked table with repository, why it fits, health signals, likely contribution paths, and risk.
 
-For opportunity analysis, return a ranked Top 3 with source, entry files, expected effort, acceptance risk, test strategy, and interview value.
+For opportunity analysis, return a ranked Top 3 with source, entry files, expected effort, PR collision check, acceptance risk, test strategy, and interview value.
 
 For implementation tasks, finish with changed files, tests run, remaining risks, and PR draft or PR URL.
 

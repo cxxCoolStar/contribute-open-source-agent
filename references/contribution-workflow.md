@@ -39,7 +39,9 @@ Prefer issues that match all or most of these:
 
 - Open and active within the last 60 days.
 - Unassigned.
-- No recent comment says someone is already working on it.
+- No linked open or draft PR.
+- No recently merged PR that appears to resolve the issue while the issue stayed open.
+- No recent comment says someone is already working on it or has opened a PR.
 - Clear expected behavior, reproducible steps, or concrete acceptance criteria.
 - Likely touches 1-3 files.
 - Does not require broad architecture redesign.
@@ -51,6 +53,24 @@ Contribution types from easiest to hardest:
 3. Tests for uncovered behavior.
 4. New tool or integration, especially for Agent frameworks.
 5. Core feature, only after discussion with maintainers.
+
+## PR Collision Check
+
+Before recommending any issue, prove it is not already being handled:
+
+1. Prefer GitHub search qualifiers that exclude linked PRs when available, for example `is:issue is:open no:assignee -linked:pr`.
+2. Open the issue and inspect the linked PR/development area when browsing GitHub.
+3. Check timeline or events for cross-referenced, connected, mentioned, or closed-by PRs.
+4. Search open PRs in the same repository for the issue number, title keywords, and phrases such as `fixes #123`, `closes #123`, `resolves #123`, or `addresses #123`.
+5. Read recent comments for ownership signals: `I am working on this`, `I opened a PR`, `see #456`, `fixed in`, `pending release`, or maintainer assignment language.
+
+Exclude the issue if any open/draft PR is likely solving it. If only an old abandoned PR exists, mark the risk explicitly instead of treating the issue as clean.
+
+Add a `PR collision check` field to every recommended issue with one of:
+
+- `clean: no linked/open PR found`
+- `risky: abandoned/stale PR exists, needs maintainer comment first`
+- `exclude: active PR or maintainer-owned work exists`
 
 ## Repository Analysis Prompt
 
@@ -79,7 +99,8 @@ Then output the directory structure to depth 3, mark likely core modules, and de
 Screen open issues for:
 - labels: good first issue, help wanted, bug, documentation, enhancement, or close project-specific equivalents
 - activity within the last 60 days
-- no assignee and no comment claiming ownership
+- no assignee
+- no linked/open PR and no comment claiming ownership or an existing PR
 - clear expected behavior or reproduction steps
 - likely change scope of 1-3 files
 
@@ -96,6 +117,7 @@ For each recommendation:
 - Why it fits my stack
 - Estimated effort: small / medium / large
 - Interview value
+- PR collision check
 - Acceptance risk
 - Test strategy
 ```
