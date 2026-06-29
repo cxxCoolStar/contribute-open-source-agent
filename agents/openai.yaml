@@ -1,0 +1,4 @@
+interface:
+  display_name: "Open Source Agent Contributor"
+  short_description: "Find OSS Agent projects and PR paths."
+  default_prompt: "Use $contribute-open-source-agent to find an AI Agent open-source project I can contribute to and prepare a PR plan."
