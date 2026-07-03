@@ -8,12 +8,28 @@ Screen open issues for:
 
 - Labels such as `bug`, `enhancement`, `help wanted`, `good first issue`, eval/test labels, agent/tool/context labels, or close project-specific equivalents.
 - Activity within the last 60 days when possible.
-- No assignee unless the assignee is inviting help.
+- No assignee. Exclude assigned issues unless the assignee or a maintainer explicitly invites outside help.
 - Clear expected behavior, reproduction steps, failing scenario, or acceptance criteria.
 - Likely change scope of 1-3 files.
 - A direct relationship to core agent behavior.
 
 Exclude issues if they are docs-only, UI-only, setup-only, dependency-only, or generic cleanup.
+
+
+## Assignee Check
+
+Before recommending an issue, inspect assignee metadata and recent comments:
+
+1. Check the issue `assignees` list and visible assignee in GitHub UI or API.
+2. Read recent comments for ownership signals such as `assigned to me`, `I can take this`, `working on it`, `will fix`, or maintainer assignment language.
+3. If the issue has an assignee, exclude it unless the assignee or a maintainer explicitly says outside help is welcome.
+4. If the issue is unassigned but someone claims it in comments, treat it as assigned and exclude it.
+
+Use one of these values:
+
+- `clean: unassigned and no ownership claim found`
+- `risky: unclear ownership, ask before coding`
+- `exclude: assigned or claimed`
 
 ## PR Collision Check
 
@@ -59,6 +75,7 @@ For each candidate, include:
 - Core agent behavior affected
 - Entry files
 - Expected effort
+- Assignee check
 - PR collision check
 - Test strategy
 - Acceptance risk

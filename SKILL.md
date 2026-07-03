@@ -9,7 +9,7 @@ description: Analyze a fixed pool of AI Agent open-source repositories, identify
 
 Drive the contribution end to end, but keep scope small enough that maintainers can review it. Prefer one focused PR that improves a concrete agent behavior over a broad refactor or peripheral cleanup.
 
-Use current GitHub data when checking repository activity, issues, pull requests, maintainer responsiveness, and PR collision risk. If network access or GitHub authentication is unavailable, explain the limitation and continue with local repository analysis.
+Use current GitHub data when checking repository activity, issues, assignees, pull requests, maintainer responsiveness, and PR collision risk. If network access or GitHub authentication is unavailable, explain the limitation and continue with local repository analysis.
 
 Do not do broad GitHub repository discovery. Analyze only the fixed repository pool unless the user explicitly provides another repository.
 
@@ -56,7 +56,8 @@ Read the smallest relevant reference before acting:
 3. Select core-agent contribution opportunities:
    - First screen open issues, but keep only issues that affect core agent behavior.
    - Prefer active, unassigned issues with clear expected behavior, reproducible steps, or concrete acceptance criteria.
-   - Before recommending an issue, verify it has no linked or in-progress PR.
+   - Exclude issues with an assignee unless the assignee or a maintainer explicitly invites outside help.
+   - Before recommending an issue, verify it has no assignee conflict and no linked or in-progress PR.
    - If issues are thin, inspect core agent modules for small gaps that can be fixed or tested in 1-3 files.
    - Exclude peripheral work even if it is easy.
 
@@ -94,7 +95,7 @@ Read the smallest relevant reference before acting:
 
 For repository ranking, return a table with repository, core-agent fit, health signals, likely core modules, likely contribution paths, and risk.
 
-For opportunity analysis, return a ranked Top 3 with source, core-agent behavior, entry files, expected effort, PR collision check, acceptance risk, test strategy, and interview value.
+For opportunity analysis, return a ranked Top 3 with source, core-agent behavior, entry files, expected effort, assignee check, PR collision check, acceptance risk, test strategy, and interview value.
 
 For implementation tasks, finish with changed files, tests run, remaining risks, and PR draft or PR URL.
 

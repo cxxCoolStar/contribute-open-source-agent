@@ -98,7 +98,8 @@ Score each candidate from 1-5:
 | Core-agent impact | Does it change or test planning, tools, context, memory, orchestration, evals, safety, or recovery? |
 | Reviewability | Can it fit in 1-3 files and avoid public API churn? |
 | Testability | Can behavior be verified with unit, integration, or trajectory tests? |
+| Ownership fit | Is the issue unassigned and unclaimed, or has outside help been explicitly invited? |
 | Maintainer fit | Does it match existing architecture and maintainer priorities? |
 | Interview value | Can the contribution demonstrate agent architecture judgment? |
 
-Prefer opportunities with total score 18+ and no score below 3. If a candidate is mostly peripheral, exclude it even if it is easy.
+Prefer opportunities with total score 22+ and no score below 3. Exclude assigned or claimed issues unless outside help is explicitly invited. If a candidate is mostly peripheral, exclude it even if it is easy.
